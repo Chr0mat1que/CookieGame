@@ -10,15 +10,16 @@ canvas.pack()
 frame = tk.Frame(root, bg="White")
 frame.place(relwidth=0.8, relheight=0.8, relx=0.1, rely=0.1) #indentationto make the broder centered
 
-Start = tk.Button(frame, text="Start", padx=10, pady=10) # start button :D
+Start = tk.Button(frame, text="Start", padx=10,
+                  pady=10, fg="blackBu", bg="#ffffcc") # start button :D
+Start.pack()
 
-
-canvas.create_text(frame, 350, 75, text="Cookie Cracker", fill="black", font=('Helvetica 15 bold'))
-canvas.pack()
+#canvas.create_text(frame, 350, 75, text="Cookie Cracker", fill="black", font=('Helvetica 15 bold'))
+#canvas.pack()
 root.mainloop()
 
 
-def print_hi(name):
+#def print_hi(name):
         #Use a breakpoint in the code line below to debug your script.
     #print(f'Hi, tomiwa')  # Press Ctrl+F8 to toggle the breakpoint.
 

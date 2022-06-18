@@ -6,6 +6,7 @@ import scenes
 root = None
 mainmenu_frame = None
 mysterymenu_frame = None
+images = []
 
 def init_root():
     global root
@@ -33,12 +34,31 @@ def create_mysterymenu(tag="0"):
             image_frame = ttk.Frame(mysterymenu_frame)
             image_frame.place(anchor=CENTER, relx = 0.5, rely = 0.275)
             
-            #x = 0
-            #for image_name in scene["images"]:
-                #_image = PhotoImage(file="images/" + image_name + ".png")
-                #_image.grid(column=x, row = 0)
-                #x += 1
+            # Add images, maximum of 6 currently
+            if len(scene["images"]) > 0:
+                image0 = PhotoImage(file="./images/" + scene["images"][0] + ".png")
+                ttk.Label(image_frame, image=image0).grid(column=0, row=0)
+ 
+            if len(scene["images"]) > 1:
+                image1 = PhotoImage(file="./images/" + scene["images"][1] + ".png")
+                ttk.Label(image_frame, image=image1).grid(column=1, row=0)
 
+            if len(scene["images"]) > 2:
+                image2 = PhotoImage(file="./images/" + scene["images"][2] + ".png")
+                ttk.Label(image_frame, image=image2).grid(column=2, row=0)
+
+            if len(scene["images"]) > 3:
+                image3 = PhotoImage(file="./images/" + scene["images"][3] + ".png")
+                ttk.Label(image_frame, image=image3).grid(column=3, row=0)
+
+            if len(scene["images"]) > 4:
+                image4 = PhotoImage(file="./images/" + scene["images"][4] + ".png")
+                ttk.Label(image_frame, image=image4).grid(column=4, row=0)
+
+            if len(scene["images"]) > 5:
+                image5 = PhotoImage(file="./images/" + scene["images"][5] + ".png")
+                ttk.Label(image_frame, image=image5).grid(column=5, row=0)
+            
             desc_lbl = ttk.Label(mysterymenu_frame, text=scene["description"], wraplength=500)
             desc_lbl.place(anchor=CENTER, relx=0.5, rely=0.45)
 
@@ -53,6 +73,7 @@ def create_mysterymenu(tag="0"):
             
             credits_lbl = ttk.Label(mainmenu_frame, text="By Tomiwa Shobowale, Oghenetega Gbejewoh and Kamsi Onubogu")
             credits_lbl.place(anchor=CENTER, relx=0.5, rely=0.95)
+            root.mainloop()
 
 
 def close_mysterymenu():

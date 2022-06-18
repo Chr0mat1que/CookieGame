@@ -22,5 +22,16 @@ exit_btn = ttk.Button(canvas, text="Exit", command=root.destroy)
 ttk.Label(canvas, text="By Oluwatomiwa Shobowale and Oghenetega Gbejewoh")# Credits
 
 canvas.create_text(350, 650, text="By Oluwatomiwa Shobowale and Oghenetega Gbejewoh", fill="black", font=('Helvetica 15 bold'))
+
+btn = Button(root, text='Start', width=20,
+             height=4, bd='10')
+
+btn.place(x=300, y=350)
+
+btn2 = Button(root, text='Exit', width=20,
+             height=4, bd='10', command=root.destroy)
+
+btn2.place(x=300, y=450)
+
 canvas.pack()
 root.mainloop()

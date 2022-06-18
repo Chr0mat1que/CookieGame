@@ -1,1 +1,1 @@
-Hello World
+This is an interactive mystery game.

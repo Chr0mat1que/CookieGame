@@ -30,19 +30,28 @@ def create_mysterymenu(tag="0"):
 
     for scene in scenes.scenes:
         if scene["tag"] == tag: 
+            image_frame = ttk.Frame(mysterymenu_frame)
+            image_frame.place(anchor=CENTER, relx = 0.5, rely = 0.275)
+            
+            #x = 0
+            #for image_name in scene["images"]:
+                #_image = PhotoImage(file="images/" + image_name + ".png")
+                #_image.grid(column=x, row = 0)
+                #x += 1
+
             desc_lbl = ttk.Label(mysterymenu_frame, text=scene["description"], wraplength=500)
-            desc_lbl.place(anchor=CENTER, relx=0.5, rely=0.3)
+            desc_lbl.place(anchor=CENTER, relx=0.5, rely=0.45)
 
             a_btn = ttk.Button(mysterymenu_frame, text=scene["a"], command=lambda _tag = scene["a_next"]: create_mysterymenu(_tag))
-            a_btn.place(anchor=CENTER, relx=0.5, rely="0.55")
+            a_btn.place(anchor=CENTER, relx=0.5, rely="0.7")
             
             b_btn = ttk.Button(mysterymenu_frame, text=scene["b"], command=lambda _tag = scene["b_next"]: create_mysterymenu(_tag))
-            b_btn.place(anchor=CENTER, relx=0.5, rely="0.6")
+            b_btn.place(anchor=CENTER, relx=0.5, rely="0.75")
             
             c_btn = ttk.Button(mysterymenu_frame, text=scene["c"], command=lambda _tag = scene["c_next"]: create_mysterymenu(_tag))
-            c_btn.place(anchor=CENTER, relx=0.5, rely="0.65")
+            c_btn.place(anchor=CENTER, relx=0.5, rely="0.8")
             
-            credits_lbl = ttk.Label(mainmenu_frame, text="By Tomiwa Shobowale and Oghenetega Gbejewoh")
+            credits_lbl = ttk.Label(mainmenu_frame, text="By Tomiwa Shobowale, Oghenetega Gbejewoh and Kamsi Onubogu")
             credits_lbl.place(anchor=CENTER, relx=0.5, rely=0.95)
 
 

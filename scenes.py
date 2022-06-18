@@ -1,7 +1,8 @@
 scenes = []
-def add_scene(tag, description, a, a_next, b, b_next, c, c_next):
+def add_scene(tag, description, a, a_next, b, b_next, c, c_next, images=None):
     scene_info = {
         "tag": tag, # This tag is derrived from the choices required to get there, e.g. "0aba" for "A -> B -> A"
+        "images": images, # This is a list of image identifiers (probably by name, like amy_happy), leave empty for none
         "description": description, # This is the text providing the information relevant to the questions
         "a": a, # The first question or answer
         "a_next": a_next, # The tag linked to ^
@@ -20,7 +21,8 @@ def init_scenes(): # Add each possible scene here, one by one. Yes this sucks. N
         "How old are you kid?", 
         "0b", 
         "Then can YOU take me to the crime scene?", 
-        "0c")
+        "0c",
+        ["amy_happy", "amy_angry"])
 
     add_scene("0a",
         "'Who knows with those two, you were supposed to be here 1 hour ago, we can't wait forever' he says. You weren't late though, you are never late. \nYou appologize anyways, no point in arguing with a 12 year old. Where are your siblings? you ask nicely, wanting to start the job as soon as poosible. \n\nReluctantly he brings you to his older siblings, they are all adults, the one who looks like they are in charge says to the boy, 'Ethan, why are you with that man and who is he?' 'Hell if i know he just walked in acting like sherlock-' Ethan says as You see the kid flinch and freeze, like he hadn't realized who he was talking to before he spoke. You couldnt see his face but you could fell the terror. You ignore it you really don't like getting involved. You ask for the person in charge, the woamn who you though was in charge walked forward and introduced herself 'Hi i'm Amy, she/her, nice to meet you.' You introduce yourself and tell them why you are in their house. They take you to the living room and you just gawk, did a tornado hit this place, whats happened here you think. The couch on its back, the TV smashed in pieces, all the cabinets emptied in the floors, your walk up slowly to there are no broken pieces on the floor. He looks at the other side of it, and surely broken glass was on the floor at the other side. What do you ask?",

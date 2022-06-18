@@ -1,37 +1,79 @@
-import tkinter
 from tkinter import *
 from tkinter import ttk
-
-root = Tk()
-root.geometry("800x800")
-frame = ttk.Frame(root)
-frame.pack()
-
-canvas = tkinter.Canvas(root, height=700, width=700, bg="#ffffcc")
-canvas.pack()
-
-canvas.create_text(350, 50, text="Cookie Breaker", fill="black", font=('Helvetica 15 bold'))
-canvas.pack()
-
-canvas.create_text(350, 150, text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", fill="black", font=('Helvetica 12 bold'), width=500) # This is the description text, stating what the game is about and other important information.canvas.pack()
+import scenes
 
 
-start_btn = ttk.Button(canvas, text="Start")
-exit_btn = ttk.Button(canvas, text="Exit", command=root.destroy)
+root = None
+mainmenu_frame = None
+mysterymenu_frame = None
 
-ttk.Label(canvas, text="By Oluwatomiwa Shobowale and Oghenetega Gbejewoh")# Credits
+def init_root():
+    global root
+    root = Tk(className="Cookie")
+    root.geometry("800x600")
 
-canvas.create_text(350, 650, text="By Oluwatomiwa Shobowale and Oghenetega Gbejewoh", fill="black", font=('Helvetica 15 bold'))
+def close_mainmenu():
+    global mainmenu_frame
+    if mainmenu_frame != None:
+        mainmenu_frame.destroy()
+        mainmenu_frame = None
 
-btn = Button(root, text='Start', width=20,
-             height=4, bd='10')
+def create_mysterymenu(tag="0"):
+    global mainmenu_frame
+    global mysterymenu_frame
+    global root
+    close_mainmenu()
+    close_mysterymenu()
 
-btn.place(x=300, y=350)
+    mysterymenu_frame = ttk.Frame(root)
+    mysterymenu_frame.place(anchor=CENTER, relx=0.5, rely=0.5, relwidth=1, relheight=1) 
 
-btn2 = Button(root, text='Exit', width=20,
-             height=4, bd='10', command=root.destroy)
+    for scene in scenes.scenes:
+        if scene["tag"] == tag: 
+            desc_lbl = ttk.Label(mysterymenu_frame, text=scene["description"], wraplength=500)
+            desc_lbl.place(anchor=CENTER, relx=0.5, rely=0.2)
 
-btn2.place(x=300, y=450)
+            a_btn = ttk.Button(mysterymenu_frame, text=scene["a"], command=lambda _tag = scene["a_next"]: create_mysterymenu(_tag))
+            a_btn.place(anchor=CENTER, relx=0.5, rely="0.45")
+            
+            b_btn = ttk.Button(mysterymenu_frame, text=scene["b"], command=lambda _tag = scene["b_next"]: create_mysterymenu(_tag))
+            b_btn.place(anchor=CENTER, relx=0.5, rely="0.50")
+            
+            c_btn = ttk.Button(mysterymenu_frame, text=scene["c"], command=lambda _tag = scene["c_next"]: create_mysterymenu(_tag))
+            c_btn.place(anchor=CENTER, relx=0.5, rely="0.55")
+            
+            credits_lbl = ttk.Label(mainmenu_frame, text="By Tomiwa Shobowale and Oghenetega Gbejewoh")
+            credits_lbl.place(anchor=CENTER, relx=0.5, rely=0.95)
 
-canvas.pack()
-root.mainloop()
+
+def close_mysterymenu():
+    global mysterymenu_frame
+    if mysterymenu_frame != None:
+        mysterymenu_frame.destroy()
+        mysterymenu_frame = None
+
+def create_mainmenu():
+    global mainmenu_frame
+    mainmenu_frame = ttk.Frame(root)
+    mainmenu_frame.place(anchor=CENTER, relx=0.5, rely=0.5, relwidth=1, relheight=1);
+    
+    title_lbl = ttk.Label(mainmenu_frame, text="Cookie", font=("Arial, 25"))
+    title_lbl.place(anchor=CENTER, relx=0.5, rely=0.1);
+    
+    desc_lbl = ttk.Label(mainmenu_frame, text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", wraplength=500,  justify="center") # This is the description text, stating what the game is about and other important information.
+    desc_lbl.place(anchor=CENTER, relx=0.5, rely=0.3)
+    
+    start_btn = ttk.Button(mainmenu_frame, text="Start", command=create_mysterymenu)
+    start_btn.place(anchor=CENTER, relx=0.5, rely=0.47)
+    exit_btn = ttk.Button(mainmenu_frame, text="Exit", command=root.destroy)
+    exit_btn.place(anchor=CENTER, relx=0.5, rely=0.53)
+    
+    credits_lbl = ttk.Label(mainmenu_frame, text="By Tomiwa Shobowale and Oghenetega Gbejewoh")
+    credits_lbl.place(anchor=CENTER, relx=0.5, rely=0.95)
+
+def main():
+    init_root()
+    create_mainmenu() 
+    root.mainloop()
+
+main()

@@ -101,7 +101,7 @@ def create_mainmenu():
     exit_btn = ttk.Button(mainmenu_frame, text="Exit", command=root.destroy)
     exit_btn.place(anchor=CENTER, relx=0.5, rely=0.53)
     
-    credits_lbl = ttk.Label(mainmenu_frame, text="By Tomiwa Shobowale, Oghenetega Gbejewoh, Kamsi Onubogu and Fiyinfoluwa Afolayan")
+    credits_lbl = ttk.Label(mainmenu_frame, text="By Oluwatomiwa Shobowale, Oghenetega Gbejewoh, Kamsi Onubogu and Fiyinfoluwa Afolayan")
     credits_lbl.place(anchor=CENTER, relx=0.5, rely=0.95)
 
 def main():

@@ -32,7 +32,7 @@ def create_mysterymenu(tag="0"):
     for scene in scenes.scenes:
         if scene["tag"] == tag: 
             image_frame = ttk.Frame(mysterymenu_frame)
-            image_frame.place(anchor=CENTER, relx = 0.5, rely = 0.275)
+            image_frame.place(anchor=CENTER, relx = 0.5, rely = 0.15)
             
             # Add images, maximum of 6 currently
             if len(scene["images"]) > 0:

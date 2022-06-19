@@ -76,7 +76,7 @@ def create_mysterymenu(tag="0"):
             c_btn = ttk.Button(mysterymenu_frame, text=scene["c"], command=lambda _tag = scene["c_next"]: create_mysterymenu(_tag))
             c_btn.place(anchor=CENTER, relx=0.5, rely="0.8")
             
-            credits_lbl = ttk.Label(mainmenu_frame, text="By Oluwatomiwa Shobowale, Oghenetega Gbejewoh and Kamsi Onubogu")
+            credits_lbl = ttk.Label(mainmenu_frame, text="By Oluwatomiwa Shobowale, Oghenetega Gbejewoh, Kamsi Onubogu and Fiyinfoluwa Afolayan")
             credits_lbl.place(anchor=CENTER, relx=0.5, rely=0.95)
             root.mainloop()
 
@@ -103,7 +103,7 @@ def create_mainmenu():
     exit_btn = ttk.Button(mainmenu_frame, text="Exit", command=root.destroy)
     exit_btn.place(anchor=CENTER, relx=0.5, rely=0.53)
     
-    credits_lbl = ttk.Label(mainmenu_frame, text="By Tomiwa Shobowale and Oghenetega Gbejewoh")
+    credits_lbl = ttk.Label(mainmenu_frame, text="By Tomiwa Shobowale, Oghenetega Gbejewoh, Kamsi Onubogu and Fiyinfoluwa Afolayan")
     credits_lbl.place(anchor=CENTER, relx=0.5, rely=0.95)
 
 def main():

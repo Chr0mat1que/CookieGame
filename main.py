@@ -1,12 +1,17 @@
 from tkinter import *
 from tkinter import ttk
+from pygame import mixer
 import scenes
-
 
 root = None
 mainmenu_frame = None
 mysterymenu_frame = None
 images = []
+
+# Audio init
+mixer.init()
+mixer.music.load("./audio/Cookie_Crumble.wav")
+mixer.music.play(loops=-1)
 
 def init_root():
     global root

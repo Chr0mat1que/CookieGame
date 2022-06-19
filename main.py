@@ -6,6 +6,7 @@ import scenes
 root = None
 mainmenu_frame = None
 mysterymenu_frame = None
+images = []
 
 def init_root():
     global root
@@ -30,20 +31,49 @@ def create_mysterymenu(tag="0"):
 
     for scene in scenes.scenes:
         if scene["tag"] == tag: 
+            image_frame = ttk.Frame(mysterymenu_frame)
+            image_frame.place(anchor=CENTER, relx = 0.5, rely = 0.275)
+            
+            # Add images, maximum of 6 currently
+            if len(scene["images"]) > 0:
+                image0 = PhotoImage(file="./images/" + scene["images"][0] + ".png")
+                ttk.Label(image_frame, image=image0).grid(column=0, row=0)
+ 
+            if len(scene["images"]) > 1:
+                image1 = PhotoImage(file="./images/" + scene["images"][1] + ".png")
+                ttk.Label(image_frame, image=image1).grid(column=1, row=0)
+
+            if len(scene["images"]) > 2:
+                image2 = PhotoImage(file="./images/" + scene["images"][2] + ".png")
+                ttk.Label(image_frame, image=image2).grid(column=2, row=0)
+
+            if len(scene["images"]) > 3:
+                image3 = PhotoImage(file="./images/" + scene["images"][3] + ".png")
+                ttk.Label(image_frame, image=image3).grid(column=3, row=0)
+
+            if len(scene["images"]) > 4:
+                image4 = PhotoImage(file="./images/" + scene["images"][4] + ".png")
+                ttk.Label(image_frame, image=image4).grid(column=4, row=0)
+
+            if len(scene["images"]) > 5:
+                image5 = PhotoImage(file="./images/" + scene["images"][5] + ".png")
+                ttk.Label(image_frame, image=image5).grid(column=5, row=0)
+            
             desc_lbl = ttk.Label(mysterymenu_frame, text=scene["description"], wraplength=500)
-            desc_lbl.place(anchor=CENTER, relx=0.5, rely=0.2)
+            desc_lbl.place(anchor=CENTER, relx=0.5, rely=0.45)
 
             a_btn = ttk.Button(mysterymenu_frame, text=scene["a"], command=lambda _tag = scene["a_next"]: create_mysterymenu(_tag))
-            a_btn.place(anchor=CENTER, relx=0.5, rely="0.45")
+            a_btn.place(anchor=CENTER, relx=0.5, rely="0.7")
             
             b_btn = ttk.Button(mysterymenu_frame, text=scene["b"], command=lambda _tag = scene["b_next"]: create_mysterymenu(_tag))
-            b_btn.place(anchor=CENTER, relx=0.5, rely="0.50")
+            b_btn.place(anchor=CENTER, relx=0.5, rely="0.75")
             
             c_btn = ttk.Button(mysterymenu_frame, text=scene["c"], command=lambda _tag = scene["c_next"]: create_mysterymenu(_tag))
-            c_btn.place(anchor=CENTER, relx=0.5, rely="0.55")
+            c_btn.place(anchor=CENTER, relx=0.5, rely="0.8")
             
-            credits_lbl = ttk.Label(mainmenu_frame, text="By Tomiwa Shobowale and Oghenetega Gbejewoh")
+            credits_lbl = ttk.Label(mainmenu_frame, text="By Tomiwa Shobowale, Oghenetega Gbejewoh and Kamsi Onubogu")
             credits_lbl.place(anchor=CENTER, relx=0.5, rely=0.95)
+            root.mainloop()
 
 
 def close_mysterymenu():

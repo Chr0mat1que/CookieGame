@@ -90,10 +90,10 @@ def create_mainmenu():
     mainmenu_frame = ttk.Frame(root)
     mainmenu_frame.place(anchor=CENTER, relx=0.5, rely=0.5, relwidth=1, relheight=1);
     
-    title_lbl = ttk.Label(mainmenu_frame, text="Cookie", font=("Arial, 25"))
+    title_lbl = ttk.Label(mainmenu_frame, text="Family secrets", font=("Arial, 25"))
     title_lbl.place(anchor=CENTER, relx=0.5, rely=0.1);
     
-    desc_lbl = ttk.Label(mainmenu_frame, text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", wraplength=500,  justify="center") # This is the description text, stating what the game is about and other important information.
+    desc_lbl = ttk.Label(mainmenu_frame, text="This is a mystery game about a detective figuring out who broke into a families house.You make choices, ask questions and solve the mystery! In the game you have to use little context clues to figure our the whole story, your diffrent questions you can ask give you diffrent pieces of information, so you either have to get the perfect combination of questions(the ideal path), or you could make your own path and who knows you might still get the culprit! \n\nAnd lastly have fun! We had fun making this!", wraplength=500,  justify="center") # This is the description text, stating what the game is about and other important information.
     desc_lbl.place(anchor=CENTER, relx=0.5, rely=0.3)
     
     start_btn = ttk.Button(mainmenu_frame, text="Start", command=create_mysterymenu)

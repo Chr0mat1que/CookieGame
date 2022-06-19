@@ -91,15 +91,15 @@ def create_mainmenu():
     mainmenu_frame.place(anchor=CENTER, relx=0.5, rely=0.5, relwidth=1, relheight=1);
     
     title_lbl = ttk.Label(mainmenu_frame, text="Family secrets", font=("Arial, 25"))
-    title_lbl.place(anchor=CENTER, relx=0.5, rely=0.1);
+    title_lbl.place(anchor=CENTER, relx=0.5, rely=0.15);
     
     desc_lbl = ttk.Label(mainmenu_frame, text="This is a mystery game about a detective figuring out who broke into a families house.You make choices, ask questions and solve the mystery! In the game you have to use little context clues to figure our the whole story, your diffrent questions you can ask give you diffrent pieces of information, so you either have to get the perfect combination of questions(the ideal path), or you could make your own path and who knows you might still get the culprit! \n\nAnd lastly have fun! We had fun making this!", wraplength=500,  justify="center") # This is the description text, stating what the game is about and other important information.
-    desc_lbl.place(anchor=CENTER, relx=0.5, rely=0.3)
+    desc_lbl.place(anchor=CENTER, relx=0.5, rely=0.4)
     
     start_btn = ttk.Button(mainmenu_frame, text="Start", command=create_mysterymenu)
-    start_btn.place(anchor=CENTER, relx=0.5, rely=0.47)
+    start_btn.place(anchor=CENTER, relx=0.5, rely=0.65)
     exit_btn = ttk.Button(mainmenu_frame, text="Exit", command=root.destroy)
-    exit_btn.place(anchor=CENTER, relx=0.5, rely=0.53)
+    exit_btn.place(anchor=CENTER, relx=0.5, rely=0.7)
     
     credits_lbl = ttk.Label(mainmenu_frame, text="By Oluwatomiwa Shobowale, Oghenetega Gbejewoh, Kamsi Onubogu and Fiyinfoluwa Afolayan")
     credits_lbl.place(anchor=CENTER, relx=0.5, rely=0.95)

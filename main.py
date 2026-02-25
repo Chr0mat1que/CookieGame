@@ -7,7 +7,7 @@ root = None
 mainmenu_frame = None
 mysterymenu_frame = None
 images = []
-
+#testing out how editing a forked repo works when u want to push the changes to the msin of the original repo
 # Audio init
 mixer.init()
 mixer.music.load("./audio/Cookie_Crumble.wav")
